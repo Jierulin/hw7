@@ -1,4 +1,6 @@
-var a=10
+var a=1
+
+
 var keys = {
   17: 0, // G    - control
   Q: 1, // Ab
@@ -33,6 +35,7 @@ function setup() {
   createCanvas(400, 400);
   backgroundColor = color(255, 0, 255);
   textAlign(CENTER);
+colorMode(HSB);
   
   for (var i = 0; i < frequencies.length; i++) {
     var osc = new p5.Oscillator();
@@ -50,12 +53,12 @@ function draw() {
  	noStroke();
   for (var i = 0; i < playing.length; i++) {
     if (playing[i]) {
-      fill(frequencies[i]/3);
+      fill(frequencies[i]/8,200,100);
     } else {
       fill(255);
     }
 
-		ellipse((i+0.3) * width/playing.length, height/4, width/playing.length*0.6, height/i);
+    ellipse((i+0.3) * width/playing.length, height/4, width/playing.length*0.6, height/10);
   }
   drops.forEach(processDrop);
   drops = drops.filter(isVisible);
@@ -64,9 +67,11 @@ function draw() {
 function processDrop(drop) {
   drop.y += 5;
   drop.opacity -= 6;
-  
-  fill(drop.shade, drop.opacity);
-  ellipse(drop.x, drop.y, width/playing.length*0.6, height/10);
+
+	a+=1
+	
+  fill(drop.shade+200, drop.opacity,360);
+  ellipse(drop.x, drop.y, width/playing.length*0.6, height/(10+a));
 }
 
 function isVisible(drop) {
@@ -83,6 +88,7 @@ function keyPressed() {
   if (osc) {
     osc.amp(0.5, 0.1);
     playing[index] = true;
+		a=1
   }
 }
 
