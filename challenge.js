@@ -1,5 +1,3 @@
-//hw6.snake challege(stop when snake head hit body/ index not defind????
-
 var SNAKE_BLOCK_SIZE = 20;
 
 var s=0
@@ -123,4 +121,6 @@ for (var index = 0; index < snakeSegments.length; index += 1) {
   // check for hit using snakeSegments[index].x and snakeSegments[index].y
 			noLoop();
 }
+		print("what's index", index);
+		print("what's snakeSegments.length", snakeSegments.length);
 		}
