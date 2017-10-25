@@ -119,7 +119,8 @@ function checkFoodReached() {
 }
 }
 	function snakeHitbody(){
-		if(snakeHead[index.x]==snakeSegments[index.x] || snakeHead[index.y]==snakeSegments[index.y]){
+for (var index = 0; index < snakeSegments.length; index += 1) {
+  // check for hit using snakeSegments[index].x and snakeSegments[index].y
 			noLoop();
-		}
+}
 		}
